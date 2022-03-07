@@ -1,0 +1,33 @@
+<html xhtml="">
+    <head><title>Welcome to filter page of product</title>
+
+        <script type='text/javascript'>
+           function fetchData() {
+               var val=document.getElementById("drpbrand").value;
+               alert("fetch data call"+val);
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       alert(this.responseText);
+       document.getElementById('resultdata').innerText=this.responseText;
+      }
+   };
+  xhttp.open("GET", "/fetchdata", true);
+  alert(xhttp);
+     xhttp.send();
+   }
+           </script>
+    </head>
+    <body>
+        <h3>Filter Product</h3>
+        <select name="drpbrand" id="drpbrand">
+            
+                <option value="0">Select any</option>
+                <option value="1">Tata</option>
+                <option value="2">Reliance</option>
+        </select>
+        <input type="button" value="Print" id="btn" onclick="fetchData();">
+        <br><br>
+        <div id="resultdata" >Output data display here</div>
+    </body>
+</html>
